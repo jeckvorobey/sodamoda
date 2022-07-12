@@ -1,0 +1,89 @@
+<template>
+  <div class="profile-content">
+    <div class="content-element">
+      <div class="head-content">
+        <div class="icon">
+          <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 14.0252V13.9982L6.48 13.9882L5.951 11.8609L19.001 9.3632L19 2H3.4982L3.0008 0H0V1H2.219L5.4579 14.0217C5.14811 14.0644 4.85922 14.2022 4.63115 14.4161C4.40307 14.6301 4.24708 14.9096 4.18473 15.216C4.12238 15.5225 4.15674 15.8407 4.28307 16.1268C4.4094 16.4128 4.62146 16.6526 4.88995 16.8129C5.15843 16.9732 5.47009 17.0462 5.78185 17.0218C6.0936 16.9973 6.39007 16.8766 6.63027 16.6764C6.87048 16.4762 7.04257 16.2063 7.12275 15.904C7.20294 15.6018 7.18727 15.2821 7.0779 14.9891L15.3424 14.9966C15.2386 15.2861 15.2265 15.6005 15.3076 15.8971C15.3887 16.1938 15.5592 16.4582 15.7959 16.6546C16.0326 16.8509 16.324 16.9696 16.6306 16.9946C16.9371 17.0195 17.2438 16.9495 17.5092 16.794C17.7745 16.6385 17.9855 16.4051 18.1136 16.1255C18.2416 15.8459 18.2805 15.5336 18.2248 15.2312C18.1692 14.9287 18.0218 14.6507 17.8027 14.435C17.5835 14.2192 17.3033 14.0761 17 14.0252ZM18 3V8.5364L5.7092 10.889L3.747 3H18ZM5.6736 16C5.57471 16 5.47804 15.9707 5.39581 15.9157C5.31359 15.8608 5.2495 15.7827 5.21166 15.6913C5.17382 15.6 5.16391 15.4994 5.18321 15.4025C5.2025 15.3055 5.25012 15.2164 5.32005 15.1464C5.38997 15.0765 5.47906 15.0289 5.57606 15.0096C5.67305 14.9903 5.77358 15.0002 5.86494 15.0381C5.9563 15.0759 6.03439 15.14 6.08933 15.2222C6.14428 15.3044 6.1736 15.4011 6.1736 15.5C6.17344 15.6326 6.12071 15.7596 6.02698 15.8534C5.93324 15.9471 5.80616 15.9998 5.6736 16ZM16.75 16C16.6511 16 16.5544 15.9707 16.4722 15.9157C16.39 15.8608 16.3259 15.7827 16.2881 15.6913C16.2502 15.6 16.2403 15.4994 16.2596 15.4025C16.2789 15.3055 16.3265 15.2164 16.3964 15.1464C16.4664 15.0765 16.5555 15.0289 16.6525 15.0096C16.7494 14.9903 16.85 15.0002 16.9413 15.0381C17.0327 15.0759 17.1108 15.14 17.1657 15.2222C17.2207 15.3044 17.25 15.4011 17.25 15.5C17.2498 15.6326 17.1971 15.7596 17.1034 15.8534C17.0096 15.9471 16.8826 15.9998 16.75 16Z" fill="black"/>
+          </svg>
+        </div>
+        <p>My orders</p>
+        <p class="descr">The products that you bought on our website are displayed here.</p>
+      </div>
+      <div class="order-wrapper">
+        <div class="order" v-for="order in orderList" :key="order.id">
+          <div class="images" :class="itemsProductClass(order.basket)">
+            <img :src="item.thumb" :alt="item.name" v-for="item in order.basket" :key="'item_' + item.id">
+          </div>
+          <div class="info">
+            <div class="info-item">
+              <p class="date-info">Order from {{ order.date }}</p>
+              <p>{{ order.id }}</p>
+              <p class="with-underline">In order: 4 products</p>
+            </div>
+            <div class="info-item">
+              <div class="price" v-html="order.price"></div>
+              <a href="#" class="btn">Repeat order</a>
+            </div>
+          </div>
+          <a href="#" class="btn mobile-btn">Repeat order</a>
+        </div>
+        <a href="#" class="item-with-underline" @click="loadMore" v-if="total_page > page">Load more</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PersonalOrders",
+  data(){
+    return {
+      count: 4,
+      page: 1,
+      total_page: 0,
+      orderList: [],
+      startSlice: 0,
+    }
+  },
+  computed: {
+    orders(){
+      return this.$store.getters['user/orders']
+    },
+  },
+  methods: {
+    loadMore(event){
+      event.preventDefault()
+      if(this.total_page > this.page) {
+        this.page += 1
+        this.addOrderList()
+      }
+    },
+    addOrderList(){
+      if(this.orders.length > 0){
+        if(this.page > 1){
+          this.startSlice = (this.count * this.page) - (this.count)
+          this.orderList = this.orderList.concat(this.orders.slice(this.startSlice, (this.count * this.page)))
+        }
+        else{
+          this.orderList = this.orders.slice(this.startSlice, (this.count * this.page))
+        }
+      }
+    },
+    itemsProductClass(items){
+      if(items.length >= 1){
+        if(items.length <= 4){
+          return 'item-' + items.length;
+        }
+        else{
+          return 'item-4';
+        }
+      }
+    }
+  },
+  mounted() {
+    this.total_page = Math.ceil(this.orders.length / this.count)
+    this.addOrderList()
+  }
+};
+</script>

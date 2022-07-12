@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Thin'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Thin.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Ultralight'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Ultralight.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Light'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Light.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Regular'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Regular.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Medium'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Medium.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Semibold'),
+  url(~assets/fonts/SFProDisplay/SFProDisplay-Semibold.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SF-Pro-Display-Bold'),
+  url('~assets/fonts/SFProDisplay/SF-Pro-Display-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: local('SFProDisplay-Heavy'),
+  url('~assets/fonts/SFProDisplay/SFProDisplay-Heavy.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 900;
+  font-style: normal;
+}

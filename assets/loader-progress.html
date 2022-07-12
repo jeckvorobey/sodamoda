@@ -1,0 +1,35 @@
+<style>
+  #content-loading {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .85);
+    z-index: 199;
+    transition: all .2s ease;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+  #content-loading.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  #content-loading img {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -95px;
+    margin-top: -95px;
+  }
+</style>
+<div id="content-loading" class="active" v-if="loading">
+  <img src="<%= options.img %>">
+</div>
