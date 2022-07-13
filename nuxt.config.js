@@ -121,7 +121,7 @@ export default {
     //"/test": "http://localhost:3000/test",
   },
   server: {
-    host: '0.0.0.0'
+    host: 'sodamoda.ru'
     // host: 'bulvin.com'
   },
   /*
