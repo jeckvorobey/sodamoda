@@ -37,7 +37,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-.vscode/
 d1.sodamoda.ru/
 
 # TypeScript v1 declaration files
@@ -79,6 +78,9 @@ dist
 
 # Serverless directories
 .serverless
+
+# VS code editor
+.vscode
 
 # IDE / Editor
 .idea
