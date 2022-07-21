@@ -6,32 +6,33 @@ export default {
       lang: "ru",
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" },
-      { name: "format-detection", content: "telephone=no" },
-      { name: "author", content: "arlix.ru" },
-      { name: "application-name", content: "&nbsp;" },
-      { name: "msapplication-TileColor", content: "#FFFFFF" },
-      { name: "msapplication-TileImage", content: "/favicon/mstile-144x144.png" },
-      { name: "msapplication-square70x70logo", content: "/favicon/mstile-70x70.png" },
-      { name: "msapplication-square150x150logo", content: "/favicon/mstile-150x150.png" },
-      { name: "msapplication-wide310x150logo", content: "/favicon/mstile-310x150.png" },
-      { name: "msapplication-square310x310logo", content: "/favicon/mstile-310x310.png" },
+      {charset: "utf-8"},
+      {name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"},
+      {name: "format-detection", content: "telephone=no"},
+      {name: "author", content: "arlix.ru"},
+      {name: "application-name", content: "&nbsp;"},
+      {name: "msapplication-TileColor", content: "#FFFFFF"},
+      {name: "msapplication-TileImage", content: "/favicon/mstile-144x144.png"},
+      {name: "msapplication-square70x70logo", content: "/favicon/mstile-70x70.png"},
+      {name: "msapplication-square150x150logo", content: "/favicon/mstile-150x150.png"},
+      {name: "msapplication-wide310x150logo", content: "/favicon/mstile-310x150.png"},
+      {name: "msapplication-square310x310logo", content: "/favicon/mstile-310x310.png"},
+      {"http-equiv": "Content-Security-Policy", content: "upgrade-insecure-requests"}
     ],
     link: [
-      { rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/favicon/apple-touch-icon-57x57.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/favicon/apple-touch-icon-114x114.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/favicon/apple-touch-icon-72x72.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/favicon/apple-touch-icon-144x144.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "/favicon/apple-touch-icon-60x60.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "/favicon/apple-touch-icon-120x120.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "/favicon/apple-touch-icon-76x76.png" },
-      { rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "/favicon/apple-touch-icon-152x152.png" },
-      { rel: "icon", type: "image/png", sizes: "196x196", href: "/favicon/favicon-196x196.png" },
-      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon/favicon-96x96.png" },
-      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon/favicon-32x32.png" },
-      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon/favicon-16x16.png" },
-      { rel: "icon", type: "image/png", sizes: "128x128", href: "/favicon/favicon-128x128.png" },
+      {rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/favicon/apple-touch-icon-57x57.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/favicon/apple-touch-icon-114x114.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/favicon/apple-touch-icon-72x72.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/favicon/apple-touch-icon-144x144.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "/favicon/apple-touch-icon-60x60.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "/favicon/apple-touch-icon-120x120.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "/favicon/apple-touch-icon-76x76.png"},
+      {rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "/favicon/apple-touch-icon-152x152.png"},
+      {rel: "icon", type: "image/png", sizes: "196x196", href: "/favicon/favicon-196x196.png"},
+      {rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon/favicon-96x96.png"},
+      {rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon/favicon-32x32.png"},
+      {rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon/favicon-16x16.png"},
+      {rel: "icon", type: "image/png", sizes: "128x128", href: "/favicon/favicon-128x128.png"},
     ],
   },
   loadingIndicator: {
@@ -66,7 +67,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    ["cookie-universal-nuxt", { alias: "cookiz" }],
+    ["cookie-universal-nuxt", {alias: "cookiz"}],
     "@nuxtjs/proxy",
     ['@nuxtjs/i18n', {
       vueI18nLoader: true,
@@ -112,17 +113,13 @@ export default {
   },
   proxy: {
     // Simple proxy
-    "/api/": { target: 'http://dev.bulvin.com/', changeOrigin: true },
-    "/local/": { target: 'http://dev.bulvin.com/', changeOrigin: true },
-    "/bitrix/": { target: 'http://dev.bulvin.com/', changeOrigin: true },
-    // "/api/": { target: 'http://localhost:3000/', changeOrigin: true },
-    // "/local/": { target: 'http://localhost:3000/', changeOrigin: true },
-    // "/bitrix/": { target: 'http://localhost:3000/', changeOrigin: true },
+    "/api/": { target: 'https://dev.bulvin.com/', changeOrigin: true },
+    "/local/": { target: 'https://dev.bulvin.com/', changeOrigin: true },
+    "/bitrix/": { target: 'https://dev.bulvin.com/', changeOrigin: true },
     //"/test": "http://localhost:3000/test",
   },
   server: {
-    host: '0.0.0.0'
-    // host: 'bulvin.com'
+    host: '127.0.0.1'
   },
   /*
   ** Build configuration
