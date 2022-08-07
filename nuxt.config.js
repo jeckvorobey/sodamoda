@@ -119,7 +119,7 @@ export default {
     //"/test": "http://localhost:3000/test",
   },
   server: {
-    host: '127.0.0.1'
+    host: '0.0.0.0'
   },
   /*
   ** Build configuration
